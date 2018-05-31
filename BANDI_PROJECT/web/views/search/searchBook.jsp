@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*, com.semi.bandi.model.vo.SearchBook"%>
 <%
 	String option = (String) request.getAttribute("option");
 	String getText = (String) request.getAttribute("getText");
+	ArrayList<SearchBook> list = (ArrayList<SearchBook>)request.getAttribute("list");
+	HashMap<String, Integer> genreCount = (HashMap<String, Integer>)request.getAttribute("genreCount");
 %>
 <html>
 <head>
 <title>검색화면</title>
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/searchBook/hkLocal.css?ver=1">
+	href="<%=request.getContextPath()%>/resources/css/searchBook/hkLocal.css?ver=2">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/category/bootstrap.min.css">
 <link rel="stylesheet"
@@ -31,70 +33,74 @@
 				<div class="bg-pripink" style="padding: 2%; padding-left: 5%;">
 					"<%=getText%>"(으)로
 					<%=option%>
-					2,134건 검색
+					<%=list.size()%>건 검색
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 leftdiv">
+					<div class="col-md-3 leftdiv">
 						<ul class="leftbar" style="min-width: inherit;">
-							<li><a href="#">문학(4)</a>
+							<li><a href="#" id="A">문학</a>
 								<ul>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 소설(1)</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 시(2)</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 에세이(자서전)(1)</a></li>
+									<li><a href="#" id="A1">&nbsp;&nbsp;&nbsp; 소설</a></li>
+									<li><a href="#" id="A2">&nbsp;&nbsp;&nbsp; 시</a></li>
+									<li><a href="#" id="A3">&nbsp;&nbsp;&nbsp; 에세이(자서전)</a></li>
 								</ul></li>
-							<li><a href="#">인문</a>
+							<li><a href="#" id="B">인문</a>
 								<ul>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 역사/문화</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 종교</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 심리</a></li>
+									<li><a href="#" id="B1">&nbsp;&nbsp;&nbsp; 역사/문화</a></li>
+									<li><a href="#" id="B2">&nbsp;&nbsp;&nbsp; 종교</a></li>
+									<li><a href="#" id="B3">&nbsp;&nbsp;&nbsp; 심리</a></li>
 								</ul></li>
-							<li><a href="#">과학</a>
+							<li><a href="#" id="C">과학</a>
 								<ul>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 기술/공학</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 컴퓨터/IT</a></li>
+									<li><a href="#" id="C1">&nbsp;&nbsp; 기술/공학</a></li>
+									<li><a href="#" id="C2">&nbsp;&nbsp; 컴퓨터/IT</a></li>
 								</ul></li>
-							<li><a href="#">취미</a>
+							<li><a href="#" id="D">취미</a>
 								<ul>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 가정(요리)</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 운동(건강)</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 여행</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 음악(대중문화)</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 스포츠</a></li>
+									<li><a href="#" id="D1">&nbsp;&nbsp; 가정(요리)</a></li>
+									<li><a href="#" id="D2">&nbsp;&nbsp; 운동(건강)</a></li>
+									<li><a href="#" id="D3">&nbsp;&nbsp; 여행</a></li>
+									<li><a href="#" id="D4">&nbsp;&nbsp; 음악(대중문화)</a></li>
+									<li><a href="#" id="D5">&nbsp;&nbsp; 스포츠</a></li>
 								</ul></li>
-							<li><a href="#">교육</a>
+							<li><a href="#" id="E">교육</a>
 								<ul>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 어린이/청소년</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 참고서(초/중/고)</a></li>
+									<li><a href="#" id="E1">&nbsp;&nbsp; 어린이/청소년</a></li>
+									<li><a href="#" id="E2">&nbsp;&nbsp; 참고서(초/중/고)</a></li>
 								</ul></li>
-							<li><a href="#">사회</a>
+							<li><a href="#"  id="F">사회</a>
 								<ul>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 정치/사회</a></li>
-									<li><a href="#">&nbsp;&nbsp;&nbsp; 경제/경영</a></li>
+									<li><a href="#" id="F1">&nbsp;&nbsp; 정치/사회</a></li>
+									<li><a href="#" id="F2">&nbsp;&nbsp; 경제/경영</a></li>
 								</ul></li>
 						</ul>
 					</div>
-					<div class="col-md-8" id="content">
+					<div class="col-md-9" id="content">
 						<div class="">
 							<%
-								for (int i = 0; i < 10; i++) {
+								for (int i = 0; i < list.size(); i++) {
+									SearchBook book = list.get(i);
 							%>
+							<script>
+								var genre = "";
+							</script>
 							<div class="row booklist">
-								<div class="col-lg-2 text-center mt-2 mb-2" style="padding: 0px">
+								<div class="col-lg-3 text-center mt-2 mb-2" style="padding: 0px">
 									<img
-										src="<%=request.getContextPath()%>/resources/img/aUHXdzfRbG14810_1.jpg"
+										src="<%=request.getContextPath()%>/resources/bookimage/<%=book.getmImagePath()%>"
 										alt="책" class="bookImg">
 								</div>
-								<div class="col-lg-6 bookInfo">
-									<div class="bookTitle">나는 독일에서 일한다</div>
-									<div>21,000원</div>
-									<div>★★★★☆</div>
+								<div class="col-lg-5 bookInfo">
+									<div class="bookTitle mb-1"><%=book.getmTitle()%></div>
+									<div class="price"><%=book.getmPrice()%></div>
+									<div><%=book.getmWriter()%> / <%=book.getmPublisher()%></div>
 								</div>
 								<div class="col-lg-4" style="margin: auto;">
 									<div class="input-group mb-1 mt-1">
 										<div class="input-group-prepend">
 											<label class="input-group-text" for="bookCount01">수량</label>
-											<input class="input-group" type="number" min="0" value="1"
+											<input class="input-group" type="number" min="0" max="100" value="1"
 												id="bookCount01" />
 										</div>
 									</div>
@@ -108,6 +114,7 @@
 								</div>
 							</div>
 							<br>
+							
 							<%
 								}
 							%>
@@ -128,8 +135,10 @@
 
 					<!-- middiv -->
 					</div>
+					
 				<!-- leftdiv + middiv -->
 				</div>
+				
 			<!-- topdiv + leftdiv + bookList -->
 			</div>
 
@@ -139,7 +148,14 @@
 
 
 	</div>
-
-
+	<script>
+		$(function(){
+			$(".price").each(function(index, item){
+				var price = $(this).text();
+				$(this).text(price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') +"원");
+			});
+			
+		});
+	</script>
 </body>
 </html>

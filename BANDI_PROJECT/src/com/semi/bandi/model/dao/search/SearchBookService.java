@@ -1,12 +1,14 @@
 package com.semi.bandi.model.dao.search;
 
-import static com.semi.bandi.template.JDBCTemplate.*;
+import static com.semi.bandi.template.JDBCTemplate.close;
+import static com.semi.bandi.template.JDBCTemplate.getInstance;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.semi.bandi.model.service.search.SearchBookDao;
-import com.semi.bandi.model.vo.Book;
+import com.semi.bandi.model.vo.SearchBook;
 
 public class SearchBookService {
 
@@ -16,13 +18,24 @@ public class SearchBookService {
 		 dao = new SearchBookDao();
 	}
 	
-	public ArrayList<Book> searchBook(String option, String getText){
+	public ArrayList<SearchBook> searchBook(String option, String getText){
 		Connection con = getInstance();
-		ArrayList<Book> list = dao.searchBook(con, option, getText);
 		
+		ArrayList<SearchBook> list = dao.searchBook(con, option, getText);
+
 		close(con);
 				
 		return list;
+	}
+
+	public HashMap<String, Integer> searchBookGenre(String option, String getText) {
+		Connection con = getInstance();
+		
+		HashMap<String, Integer> genreCount = dao.searchBookGenre(con, option, getText);
+		
+		close(con);
+		
+		return genreCount;
 	}
 	
 }
