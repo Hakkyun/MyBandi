@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.semi.bandi.model.dao.search.SearchBookService;
 import com.semi.bandi.model.vo.SearchBook;
 
-@WebServlet("/SearchBook")
+@WebServlet("/searchBook.sb")
 public class SearchBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -1,4 +1,4 @@
-package com.semi.bandi.model.dao.search;
+package com.semi.bandi.model.service.search;
 
 import static com.semi.bandi.template.JDBCTemplate.close;
 import static com.semi.bandi.template.JDBCTemplate.getInstance;
@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.semi.bandi.model.service.search.SearchBookDao;
+import com.semi.bandi.model.dao.search.SearchBookDao;
 import com.semi.bandi.model.vo.SearchBook;
 
 public class SearchBookService {

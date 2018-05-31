@@ -1,4 +1,4 @@
-package com.semi.bandi.model.service.search;
+package com.semi.bandi.model.dao.search;
 
 import static com.semi.bandi.template.JDBCTemplate.close;
 

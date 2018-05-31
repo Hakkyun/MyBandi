@@ -4,7 +4,6 @@
 	String option = (String) request.getAttribute("option");
 	String getText = (String) request.getAttribute("getText");
 	ArrayList<SearchBook> list = (ArrayList<SearchBook>)request.getAttribute("list");
-	HashMap<String, Integer> genreCount = (HashMap<String, Integer>)request.getAttribute("genreCount");
 %>
 <html>
 <head>
@@ -37,7 +36,7 @@
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-3 leftdiv">
+					<div class="col-lg-3 col-md-4 leftdiv">
 						<ul class="leftbar" style="min-width: inherit;">
 							<li><a href="#" id="A">문학</a>
 								<ul>
@@ -76,7 +75,7 @@
 								</ul></li>
 						</ul>
 					</div>
-					<div class="col-md-9" id="content">
+					<div class="col-lg-9 col-md-8" id="content">
 						<div class="">
 							<%
 								for (int i = 0; i < list.size(); i++) {
