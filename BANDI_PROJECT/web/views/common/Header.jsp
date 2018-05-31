@@ -40,7 +40,7 @@
 			 	<img src ="<%=request.getContextPath()%>/resources/images/common/bandi.png"  style ="max-height: 80px;"
 			 	onclick="location='<%=request.getContextPath()%>/views/main/Main.jsp'" id ="bandiLogo">
 			 </div>
-			<form action ="<%=request.getContextPath()%>/searchBook.sb" method ="POST" onsubmit="return checkBlank(this);" name ="searchSubmit">
+			<form action ="/BANDI/searchBook.sb" method ="POST" onsubmit="return checkBlank(this);" name ="searchSubmit">
 				 <div class = "w3-col l5 m12 s12 w3-center" style ="padding-top: 30px;">
 				 	<select name="searchBy" id="searchBy">
 	                         <option value="totalSearch" selected>통합검색</option>
