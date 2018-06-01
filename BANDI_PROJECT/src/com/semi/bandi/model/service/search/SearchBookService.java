@@ -37,5 +37,15 @@ public class SearchBookService {
 		
 		return genreCount;
 	}
+
+	public ArrayList<SearchBook> searchGenre(String option, String getText, String genreCode) {
+		Connection con = getInstance();
+		
+		ArrayList<SearchBook> list = dao.searchGenre(con, option, getText, genreCode);
+
+		close(con);		
+		
+		return list;
+	}
 	
 }

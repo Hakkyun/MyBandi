@@ -19,9 +19,7 @@ import com.semi.bandi.model.vo.SearchBook;
 public class SearchBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public SearchBookServlet() {
-        super();
-    }
+    public SearchBookServlet() { }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String option = request.getParameter("searchBy");

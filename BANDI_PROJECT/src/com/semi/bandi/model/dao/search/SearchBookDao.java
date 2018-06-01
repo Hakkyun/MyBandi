@@ -127,4 +127,13 @@ public class SearchBookDao {
 		return genreCount;
 	}
 
+	public ArrayList<SearchBook> searchGenre(Connection con, String option, String getText, String genreCode) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SearchBook> list = null;
+		String dynamicSQL = "";
+
+		return list;
+	}
+
 }

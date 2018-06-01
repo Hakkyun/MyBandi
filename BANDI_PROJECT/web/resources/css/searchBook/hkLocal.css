@@ -74,17 +74,17 @@ ul {
 	margin-top:10%;
 }
 
-.leftbar>li>a {
+.leftbar>li>span {
 	text-align: center;
 	text-decoration: none;
-	font-size: 13pt;
+	font-size: 14pt;
 	color: white;
 }
 
-.leftbar>li>a:hover {
+.leftbar>li>span:hover {
 	text-align: center;
 	color: lightgray;
-	font-size: 14pt;
+	font-size: 15pt;
 }
 .leftbar>li>ul{
 	min-width:inherit;
@@ -93,14 +93,15 @@ ul {
 .leftbar>li>ul>li{
 	margin-top:2%;
 }
-.leftbar>li>ul>li>a {
+.leftbar>li>ul>li>span {
 	text-align: left;
 	text-decoration: none;
 	font-size: 10pt;
 	color: rgb(230, 230, 230);
 }
 
-.leftbar>li>ul>li>a:hover {
+.leftbar>li>ul>li>span:hover {
+	cursor:pointer;
 	font-size: 11pt;
 	color: lightgray;
 }
